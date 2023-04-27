@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'api',
         'passwords' => 'users',
     ],
 
@@ -37,9 +37,15 @@ return [
 
     'guards' => [
         'web' => [
-            'driver' => 'session',
+            'driver' => 'jwt',
             'provider' => 'users',
         ],
+         // you need to implement this
+     'api' => [
+        'driver' => 'jwt',
+        'provider' => 'users',
+        'hash' => true,
+    ],
     ],
 
     /*
@@ -111,5 +117,7 @@ return [
     */
 
     'password_timeout' => 10800,
+
+    
 
 ];
